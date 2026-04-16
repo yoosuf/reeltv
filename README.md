@@ -19,7 +19,7 @@
 
 ## License
 
-Copyright © 2024 Yoosuf
+Copyright © 2026 Yoosuf
 
 ## ✨ Features
 

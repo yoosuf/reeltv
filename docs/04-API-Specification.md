@@ -108,7 +108,7 @@ Register a new user account.
       "name": "John Doe",
       "avatar_url": null,
       "role": "user",
-      "created_at": "2024-01-01T00:00:00Z"
+      "created_at": "2026-01-01T00:00:00Z"
     },
     "access_token": "jwt_access_token",
     "refresh_token": "jwt_refresh_token",
@@ -226,11 +226,11 @@ Get current user profile.
     "avatar_url": null,
     "role": "user",
     "is_active": true,
-    "created_at": "2024-01-01T00:00:00Z",
+    "created_at": "2026-01-01T00:00:00Z",
     "subscription": {
       "plan": "basic",
       "status": "active",
-      "start_date": "2024-01-01T00:00:00Z",
+      "start_date": "2026-01-01T00:00:00Z",
       "end_date": "2024-02-01T00:00:00Z",
       "auto_renew": true
     }
@@ -264,7 +264,7 @@ Update user profile.
     "name": "John Smith",
     "avatar_url": "https://example.com/avatar.jpg",
     "role": "user",
-    "updated_at": "2024-01-01T00:00:00Z"
+    "updated_at": "2026-01-01T00:00:00Z"
   }
 }
 ```
@@ -330,7 +330,7 @@ List all published series with filtering and pagination.
         "total_seasons": 2,
         "rating": 8.5,
         "view_count": 10000,
-        "released_at": "2024-01-01T00:00:00Z",
+        "released_at": "2026-01-01T00:00:00Z",
         "genres": [
           {
             "id": 1,
@@ -385,7 +385,7 @@ Get detailed information about a series including seasons.
     "total_seasons": 2,
     "rating": 8.5,
     "view_count": 10000,
-    "released_at": "2024-01-01T00:00:00Z",
+    "released_at": "2026-01-01T00:00:00Z",
     "genres": [
       {
         "id": 1,
@@ -409,7 +409,7 @@ Get detailed information about a series including seasons.
         "description": "Season description",
         "poster_url": "https://example.com/season1.jpg",
         "episode_count": 12,
-        "released_at": "2024-01-01T00:00:00Z"
+        "released_at": "2026-01-01T00:00:00Z"
       }
     ],
     "in_my_list": false
@@ -439,7 +439,7 @@ Get episodes in a specific season.
     "description": "Season description",
     "poster_url": "https://example.com/season1.jpg",
     "episode_count": 12,
-    "released_at": "2024-01-01T00:00:00Z",
+    "released_at": "2026-01-01T00:00:00Z",
     "episodes": [
       {
         "id": 1,
@@ -452,7 +452,7 @@ Get episodes in a specific season.
         "thumbnail_url": "https://example.com/ep1.jpg",
         "duration": 120,
         "is_premium": false,
-        "released_at": "2024-01-01T00:00:00Z",
+        "released_at": "2026-01-01T00:00:00Z",
         "watch_progress": {
           "progress": 45,
           "completed": false
@@ -490,7 +490,7 @@ Get detailed information about an episode.
     "video_url": "https://s3.example.com/videos/ep1.mp4",
     "duration": 120,
     "is_premium": false,
-    "released_at": "2024-01-01T00:00:00Z",
+    "released_at": "2026-01-01T00:00:00Z",
     "series": {
       "id": 1,
       "title": "Drama Series Title",
@@ -549,7 +549,7 @@ Get personalized home feed with multiple sections.
           "poster_url": "https://example.com/poster.jpg"
         },
         "progress": 45,
-        "last_watched": "2024-01-01T00:00:00Z"
+        "last_watched": "2026-01-01T00:00:00Z"
       }
     ],
     "trending": [
@@ -566,7 +566,7 @@ Get personalized home feed with multiple sections.
         "id": 2,
         "title": "New Series",
         "poster_url": "https://example.com/poster2.jpg",
-        "released_at": "2024-01-01T00:00:00Z"
+        "released_at": "2026-01-01T00:00:00Z"
       }
     ],
     "recommended_for_you": [
@@ -619,7 +619,7 @@ Update or create watch progress for an episode.
     "episode_id": 1,
     "progress": 45,
     "completed": false,
-    "last_watched": "2024-01-01T00:00:00Z"
+    "last_watched": "2026-01-01T00:00:00Z"
   }
 }
 ```
@@ -654,7 +654,7 @@ Get list of episodes in progress.
       },
       "progress": 45,
       "completed": false,
-      "last_watched": "2024-01-01T00:00:00Z"
+      "last_watched": "2026-01-01T00:00:00Z"
     }
   ]
 }
@@ -673,7 +673,7 @@ Get watch progress for a specific episode.
   "data": {
     "progress": 45,
     "completed": false,
-    "last_watched": "2024-01-01T00:00:00Z"
+    "last_watched": "2026-01-01T00:00:00Z"
   }
 }
 ```
@@ -703,7 +703,7 @@ Add a series to user's my list.
     "id": 1,
     "user_id": 1,
     "series_id": 1,
-    "added_at": "2024-01-01T00:00:00Z"
+    "added_at": "2026-01-01T00:00:00Z"
   }
 }
 ```
@@ -741,7 +741,7 @@ Get user's my list.
       {
         "id": 1,
         "series_id": 1,
-        "added_at": "2024-01-01T00:00:00Z",
+        "added_at": "2026-01-01T00:00:00Z",
         "series": {
           "id": 1,
           "title": "Drama Series Title",
@@ -875,7 +875,7 @@ Get current subscription status.
     "uuid": "uuid",
     "plan": "basic",
     "status": "active",
-    "start_date": "2024-01-01T00:00:00Z",
+    "start_date": "2026-01-01T00:00:00Z",
     "end_date": "2024-02-01T00:00:00Z",
     "auto_renew": true,
     "can_access_premium": true
@@ -1000,7 +1000,7 @@ Create a new series.
   "is_premium": false,
   "genre_ids": [1, 2],
   "tag_ids": [1, 2],
-  "released_at": "2024-01-01T00:00:00Z"
+  "released_at": "2026-01-01T00:00:00Z"
 }
 ```
 
@@ -1014,7 +1014,7 @@ Create a new series.
     "title": "New Series",
     "slug": "new-series",
     "status": "draft",
-    "created_at": "2024-01-01T00:00:00Z"
+    "created_at": "2026-01-01T00:00:00Z"
   }
 }
 ```
@@ -1041,7 +1041,7 @@ Update a series.
   "data": {
     "id": 1,
     "title": "Updated Title",
-    "updated_at": "2024-01-01T00:00:00Z"
+    "updated_at": "2026-01-01T00:00:00Z"
   }
 }
 ```
@@ -1073,7 +1073,7 @@ Create a new season for a series.
   "title": "Season 1",
   "description": "Season description",
   "poster_url": "https://example.com/season1.jpg",
-  "released_at": "2024-01-01T00:00:00Z"
+  "released_at": "2026-01-01T00:00:00Z"
 }
 ```
 
@@ -1086,7 +1086,7 @@ Create a new season for a series.
     "uuid": "uuid",
     "series_id": 1,
     "season_number": 1,
-    "created_at": "2024-01-01T00:00:00Z"
+    "created_at": "2026-01-01T00:00:00Z"
   }
 }
 ```
@@ -1107,7 +1107,7 @@ Create a new episode for a season.
   "video_url": "https://s3.example.com/videos/ep1.mp4",
   "duration": 120,
   "is_premium": false,
-  "released_at": "2024-01-01T00:00:00Z"
+  "released_at": "2026-01-01T00:00:00Z"
 }
 ```
 
@@ -1122,7 +1122,7 @@ Create a new episode for a season.
     "season_id": 1,
     "episode_number": 1,
     "status": "draft",
-    "created_at": "2024-01-01T00:00:00Z"
+    "created_at": "2026-01-01T00:00:00Z"
   }
 }
 ```
@@ -1149,7 +1149,7 @@ Update an episode.
   "data": {
     "id": 1,
     "title": "Updated Episode Title",
-    "updated_at": "2024-01-01T00:00:00Z"
+    "updated_at": "2026-01-01T00:00:00Z"
   }
 }
 ```
@@ -1192,7 +1192,7 @@ Create a new genre.
     "id": 1,
     "name": "Action",
     "slug": "action",
-    "created_at": "2024-01-01T00:00:00Z"
+    "created_at": "2026-01-01T00:00:00Z"
   }
 }
 ```
@@ -1219,7 +1219,7 @@ Create a new tag.
     "id": 1,
     "name": "thriller",
     "slug": "thriller",
-    "created_at": "2024-01-01T00:00:00Z"
+    "created_at": "2026-01-01T00:00:00Z"
   }
 }
 ```
@@ -1279,7 +1279,7 @@ Basic health check.
 {
   "success": true,
   "status": "healthy",
-  "timestamp": "2024-01-01T00:00:00Z"
+  "timestamp": "2026-01-01T00:00:00Z"
 }
 ```
 
@@ -1298,7 +1298,7 @@ Readiness check with dependency status.
     "redis": "healthy",
     "storage": "healthy"
   },
-  "timestamp": "2024-01-01T00:00:00Z"
+  "timestamp": "2026-01-01T00:00:00Z"
 }
 ```
 

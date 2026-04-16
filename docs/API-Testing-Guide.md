@@ -162,7 +162,7 @@ curl -X POST http://localhost:8080/api/v1/catalog/series \
     "title": "New Series",
     "slug": "new-series",
     "description": "Series description",
-    "year": 2024,
+    "year": 2026,
     "genre": "Drama",
     "language": "en"
   }'
