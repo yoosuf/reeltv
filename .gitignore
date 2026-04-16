@@ -1,0 +1,93 @@
+# Backend / Go
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+bin/
+dist/
+build/
+backend/api
+backend/reeltv-api
+
+# Test binary
+*.test
+*.test.exe
+
+# Output of the go coverage tool
+*.out
+coverage.html
+coverage.txt
+coverage.out
+
+# Go workspace file
+go.work
+
+# Dependency directories
+vendor/
+
+# Go build artifacts
+backend/bin/
+backend/dist/
+backend/build/
+
+# Go test artifacts
+backend/*.test
+backend/*.out
+
+# Go profiling
+*.prof
+backend/*.prof
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Docker
+docker-compose.override.yml
+
+# Database
+*.db
+*.sqlite
+
+# Temporary files
+tmp/
+temp/
+
+# Frontend / Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.turbo/
+frontend/coverage/
+frontend/.env.local
+frontend/.env.*.local
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/.DS_Store
+frontend/Thumbs.db
+frontend/.pnp
+frontend/.pnp.*
+frontend/.vercel
+frontend/*.tsbuildinfo
+frontend/next-env.d.ts

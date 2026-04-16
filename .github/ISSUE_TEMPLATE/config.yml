@@ -1,0 +1,24 @@
+blank_issues_enabled: true
+issue_templates:
+  - 
+    name: Bug Report
+    about: Create a report to help us improve
+    title: '[BUG] '
+    labels: ['bug']
+    assignees: []
+  -
+    name: Feature Request
+    about: Suggest an idea for this project
+    title: '[FEATURE] '
+    labels: ['enhancement']
+    assignees: []
+contact_links:
+  - name: Documentation
+    url: https://github.com/yoosuf/reeltv#documentation
+    about: Check the documentation before asking a question
+  - name: Security Policy
+    url: SECURITY.md
+    about: Our security policy for reporting vulnerabilities
+  - name: Support
+    url: SUPPORT.md
+    about: Get help and support

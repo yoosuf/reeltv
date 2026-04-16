@@ -1,0 +1,27 @@
+version: 2
+updates:
+  # Enable version updates for Go modules
+  - package-ecosystem: "gomod"
+    directory: "/backend"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "yoosuf"
+    labels:
+      - "dependencies"
+      - "go"
+  
+  # Enable version updates for Docker
+  - package-ecosystem: "docker"
+    directory: "/deployments"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "yoosuf"
+    labels:
+      - "dependencies"
+      - "docker"

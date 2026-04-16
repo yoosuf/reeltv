@@ -1,0 +1,110 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  reeltv-db:
+    image: postgres:15-alpine
+    container_name: reeltv-db
+    environment:
+      POSTGRES_USER: ${DB_USER:-reeltv}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-reeltv123}
+      POSTGRES_DB: ${DB_NAME:-reeltv}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-reeltv}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - reeltv-network
+
+  # Redis Cache
+  reeltv-redis:
+    image: redis:7-alpine
+    container_name: reeltv-redis
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - reeltv-network
+
+  # MinIO (S3-compatible storage)
+  reeltv-minio:
+    image: minio/minio:latest
+    container_name: reeltv-minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${S3_ACCESS_KEY:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${S3_SECRET_KEY:-minioadmin}
+    ports:
+      - "${S3_PORT:-9000}:9000"
+      - "${S3_CONSOLE_PORT:-9001}:9001"
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    networks:
+      - reeltv-network
+
+  # Reel TV API
+  reeltv-api:
+    build:
+      context: .
+      dockerfile: deployments/Dockerfile
+    container_name: reeltv-api
+    environment:
+      APP_ENV: ${APP_ENV:-development}
+      APP_PORT: ${APP_PORT:-8080}
+      DB_HOST: reeltv-db
+      DB_PORT: 5432
+      DB_USER: ${DB_USER:-reeltv}
+      DB_PASSWORD: ${DB_PASSWORD:-reeltv123}
+      DB_NAME: ${DB_NAME:-reeltv}
+      REDIS_HOST: reeltv-redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-}
+      JWT_SECRET: ${JWT_SECRET:-your-super-secret-jwt-key-change-in-production}
+      JWT_ACCESS_EXPIRATION: ${JWT_ACCESS_EXPIRATION:-15m}
+      JWT_REFRESH_EXPIRATION: ${JWT_REFRESH_EXPIRATION:-168h}
+      S3_ENDPOINT: http://reeltv-minio:9000
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY:-minioadmin}
+      S3_SECRET_KEY: ${S3_SECRET_KEY:-minioadmin}
+      S3_BUCKET: ${S3_BUCKET:-reeltv-media}
+      S3_REGION: ${S3_REGION:-us-east-1}
+      S3_USE_SSL: ${S3_USE_SSL:-false}
+    ports:
+      - "${APP_PORT:-8080}:8080"
+    depends_on:
+      reeltv-db:
+        condition: service_healthy
+      reeltv-redis:
+        condition: service_healthy
+      reeltv-minio:
+        condition: service_healthy
+    networks:
+      - reeltv-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  minio_data:
+    driver: local
+
+networks:
+  reeltv-network:
+    driver: bridge
