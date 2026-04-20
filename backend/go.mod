@@ -5,7 +5,7 @@ go 1.25.0
 require (
 	github.com/gin-gonic/gin v1.12.0
 	github.com/golang-jwt/jwt/v5 v5.3.1
-	github.com/google/uuid v1.5.0
+	github.com/google/uuid v1.6.0
 	github.com/gosimple/slug v1.9.0
 	github.com/redis/go-redis/v9 v9.4.0
 	github.com/rs/zerolog v1.32.0
